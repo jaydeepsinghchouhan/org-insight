@@ -1,4 +1,3 @@
-// src/components/UpcomingEvents.jsx
 import React from "react";
 import {
   Typography,
@@ -12,11 +11,9 @@ import {
 } from "@mui/material";
 import CakeIcon from "@mui/icons-material/Cake";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useTheme } from "@mui/material/styles";
 import { upcomingEvents } from "../../constants/common";
 
-const UpcomingEvents = () => {
-  const theme = useTheme();
+const UpcomingEvents = ({theme}) => {
 
   return (
     <Box
@@ -28,7 +25,7 @@ const UpcomingEvents = () => {
         mx: "auto",
         mt: 5,
         p: 3,
-        bgcolor: theme.palette.background.paper, // ✅ dynamic background
+        bgcolor: theme.palette.background.paper, 
         borderRadius: 2,
         boxShadow: 4,
       }}
@@ -44,7 +41,7 @@ const UpcomingEvents = () => {
       <Card
         sx={{
           p: 2,
-          bgcolor: theme.palette.background.paper, // ✅ dynamic background
+          bgcolor: theme.palette.background.paper, 
         }}
       >
         <List>

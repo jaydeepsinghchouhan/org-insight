@@ -11,16 +11,17 @@ export default function EmployeeCard({ employee }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: 160, // Optional, limit card width for better text ellipsis
+        height: 400,
+        width: 360,
       }}
     >
       <Avatar
-        src={employee.photo}
-        alt={employee.name}
-        sx={{ width: 80, height: 80, mb: 1 }}
+        src={employee?.photo}
+        alt={employee?.name}
+        sx={{ width: 180, height: 180, mb: 2 }}
       />
-      <CardContent sx={{ textAlign: "center", p: 0, width: '100%' }}>
-        <Tooltip title={employee.name}>
+      <CardContent sx={{ textAlign: "center", p: 2, width: '100%' }}>
+        <Tooltip title={employee?.name}>
           <Typography
             variant="h6"
             component="h3"
@@ -32,10 +33,10 @@ export default function EmployeeCard({ employee }) {
               cursor: "default",
             }}
           >
-            {employee.name}
+            {employee?.name}
           </Typography>
         </Tooltip>
-        <Tooltip title={employee.title}>
+        <Tooltip title={employee?.role}>
           <Typography
             variant="body2"
             color="text.secondary"
@@ -44,16 +45,16 @@ export default function EmployeeCard({ employee }) {
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               cursor: "default",
-              mb: 0.5,
+              mb: 1,
             }}
           >
-            {employee.title}
+            {employee?.managerId === null ? "CEO" : employee?.role}
           </Typography>
         </Tooltip>
-        <Tooltip title={employee.department}>
+        <Tooltip title={employee?.department}>
           <Typography
             variant="body2"
-            color="primary"
+            color="text.primary"
             sx={{
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -61,7 +62,7 @@ export default function EmployeeCard({ employee }) {
               cursor: "default",
             }}
           >
-            {employee.department}
+            {employee?.department} Department
           </Typography>
         </Tooltip>
       </CardContent>

@@ -1,22 +1,20 @@
-// src/components/CustomThemeToggleButton.jsx
 import React from "react";
 import Switch from "@mui/material/Switch";
-import { styled, useTheme } from "@mui/material/styles";
-import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
 
 const ThemeSwitch = styled(Switch)(({ theme }) => ({
   width: 60,
-  height: 34, // increased height
+  height: 34, 
   padding: 3,
   "& .MuiSwitch-switchBase": {
     margin: 4,
     padding: 0,
     transform: "translateX(1px)",
     "&.Mui-checked": {
-      transform: "translateX(25px)", // move thumb correctly
+      transform: "translateX(25px)", 
       color: "#fff",
       "& .MuiSwitch-thumb:before": {
-        content: '"☀️"', // sun in light mode
+        content: '"☀️"', 
       },
       "& + .MuiSwitch-track": {
         backgroundColor:
@@ -31,7 +29,7 @@ const ThemeSwitch = styled(Switch)(({ theme }) => ({
     width: 25,
     height: 25,
     "&:before": {
-      content: '"🌙"', // moon in dark mode
+      content: '"🌙"', 
       position: "absolute",
       width: "100%",
       height: "100%",

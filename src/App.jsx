@@ -11,9 +11,8 @@ function ThemedApp() {
 
   return (
     <ThemeProvider theme={createAppTheme(mode)}>
-      <CssBaseline />
+      <CssBaseline />    
         <Routes>
-
           <Route element={<Layout />}>
             {publicRoutes.map((route) => (
               <Route

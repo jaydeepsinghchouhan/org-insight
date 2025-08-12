@@ -1,19 +1,23 @@
 import React from "react";
 import Tree from "react-d3-tree";
-import { useSelector } from "react-redux";
-import PropTypes from "prop-types";
-
 import OrgChartNode from "./OrgChartNode";
-import { adminChildren } from "../constants/orgChartdata";
+import { buildHierarchy } from "../helpers/common";
+import NoDataFound from "./NoDataFound";
+import { useEmployees } from "../hooks/useEmployees";
 
 const OrgChart = () => {
   const containerStyles = {
     width: "100%",
-    height: "100vh",
+    height: "85vh",
   };
+
+  const {employees, loading} = useEmployees();
+
+  const adminChildren = buildHierarchy(employees);
+
   return (
     <div style={containerStyles}>
-      {adminChildren && (
+      {adminChildren && adminChildren.length > 0 && (
         <Tree
           data={adminChildren}
           orientation="vertical"
@@ -23,15 +27,18 @@ const OrgChart = () => {
           pathFunc="step"
           zoomable
           zoom={1.2}
-          scaleExtent={{ min: 0.5, max: 2 }}
+          scaleExtent={{ min: 0.5, max: 3 }}
           renderCustomNodeElement={({ nodeDatum, onNodeClick }) => (
-            <OrgChartNode nodeDatum={nodeDatum} onNodeClick={onNodeClick} />
+            <OrgChartNode nodeDatum={nodeDatum} onNodeClick={onNodeClick}  />
           )}
           pathClassFunc={() => "custom-tree-link"}
           transitionDuration={500}
           enableLegacyTransitions
           collapsible={false}
         />
+      )}
+      {!loading && employees?.length === 0 && (
+        <NoDataFound showDetails={false}/>
       )}
     </div>
   );

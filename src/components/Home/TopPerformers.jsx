@@ -2,10 +2,8 @@ import React from "react";
 import { Typography, Card, CardContent, Grid, Box, Avatar, Badge } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { topPerformers } from "../../constants/common";
-import { useTheme } from "@mui/material/styles";
 
-const TopPerformers = () => {
-  const theme = useTheme();
+const TopPerformers = ({theme}) => {
 
   return (
     <Box
@@ -17,7 +15,7 @@ const TopPerformers = () => {
         mx: "auto",
         mt: 5,
         p: 3,
-        bgcolor: theme.palette.background.paper, // ✅ dynamic light/dark mode
+        bgcolor: theme.palette.background.paper, 
         borderRadius: 2,
         boxShadow: 4,
       }}

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const colorOptions = [
 	'bg-secondary',
 	'bg-primary',
@@ -20,6 +22,28 @@ const getRandomColor = () => {
 	return randomColor;
 };
 
+function buildHierarchy(employees, managerId = null) {
+	return employees
+	  .filter(emp => emp.managerId === managerId)
+	  .map(emp => ({
+		...emp,
+		children: buildHierarchy(employees, emp.id)
+	  }));
+  }
+
+function useDebounce(value, delay) {
+	const [debouncedValue, setDebouncedValue] = useState(value);
+  
+	useEffect(() => {
+	  const handler = setTimeout(() => setDebouncedValue(value), delay);
+	  return () => clearTimeout(handler);
+	}, [value, delay]);
+  
+	return debouncedValue;
+  }
+
 export {
 	getRandomColor,
+	buildHierarchy,
+	useDebounce,
 };

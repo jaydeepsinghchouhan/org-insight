@@ -19,12 +19,12 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Find current active index based on route
+  
   const [value, setValue] = useState(
     sideBarElements.findIndex(el => el.link === location.pathname) || 0
   );
 
-  const icons = [<HomeIcon />, <StarIcon />, <SettingsIcon />]; // Map icons to items
+  const icons = [<HomeIcon />, <StarIcon />, <SettingsIcon />]; 
 
   const drawerContent = (
     <>
@@ -34,16 +34,16 @@ export default function Sidebar() {
         style={{
           textDecoration: "none",
           display: "inline-block",
-          fontWeight: 700, // bold
+          fontWeight: 700, 
           fontSize: "1.5rem",
-          textTransform: "uppercase", // make ORGINSIGHT fully capital
-          color: theme.palette.primary.main, // theme-aware main color
+          textTransform: "uppercase", 
+          color: theme.palette.primary.main, 
         }}
       >
         ORG
         <span
           style={{
-            color: theme.palette.secondary.main, // theme-aware secondary color for "Insight"
+            color: theme.palette.secondary.main, 
             fontWeight: 700,
           }}
         >
@@ -141,9 +141,9 @@ export default function Sidebar() {
                     fontWeight: "bold",
                     fontSize:"2rem",
                     "& .MuiSvgIcon-root": {
-                      border: `2px solid ${theme.palette.gold}`, // border color
-                      borderRadius: "50%", // circular
-                      padding: "4px",       // space inside border
+                      border: `2px solid ${theme.palette.gold}`, 
+                      borderRadius: "50%", 
+                      padding: "4px",       
                     }
                   }
                 }}

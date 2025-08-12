@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,11 +22,11 @@ export default function Header() {
     backgroundColor:
       theme.palette.mode === "light"
         ? theme.palette.primary.main
-        : theme.palette.background.paper, // softer dark background
+        : theme.palette.background.paper, 
     color:
       theme.palette.mode === "light"
         ? theme.palette.primary.contrastText
-        : theme.palette.text.primary, // readable text in dark
+        : theme.palette.text.primary, 
   }}
 >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>

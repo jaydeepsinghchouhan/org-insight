@@ -1,4 +1,3 @@
-// theme.js
 import { createTheme } from "@mui/material/styles";
 
 const borderRadius = 2;
@@ -33,16 +32,16 @@ export const createAppTheme = (mode = "light") =>
     },
     shape: { borderRadius },
     components: {
-      MuiCssBaseline: {   // ✅ ADD THIS BLOCK
-        styleOverrides: {
-          body: {
-            transition: "background-color 1s ease, color 1s ease",
-          },
-          "*": {
-            transition: "background-color 1s ease, color 0.4s ease, border-color 1s ease",
-          }
-        }
-      },
+      // MuiCssBaseline: {
+      //   styleOverrides: {
+      //     body: {
+      //       transition: "background-color 1s ease, color 1s ease",
+      //     },
+      //     "*": {
+      //       transition: "background-color 1s ease, color 0.4s ease, border-color 1s ease",
+      //     }
+      //   }
+      // },
       MuiCard: {
         styleOverrides: {
           root: {

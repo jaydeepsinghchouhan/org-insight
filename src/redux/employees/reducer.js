@@ -1,14 +1,14 @@
 const initialState = {
-    list: [],
+    employees: [],
     loading: false,
   };
   
   export default function employeeReducer(state = initialState, action) {
     switch (action.type) {
-      case 'FETCH_EMPLOYEES_REQUEST':
+      case 'FETCH_EMPLOYEES_START':
         return { ...state, loading: true };
-      case 'SET_EMPLOYEES':
-        return { ...state, list: action.employees, loading: false };
+      case 'FETCH_EMPLOYEES_SUCCESS':
+        return { ...state, employees: action.employees, loading: false };
       default:
         return state;
     }

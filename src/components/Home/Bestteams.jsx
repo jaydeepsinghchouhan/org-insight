@@ -1,12 +1,9 @@
-// src/components/BestTeam.jsx
 import React from "react";
 import { Typography, Card, Box, Avatar } from "@mui/material";
 import GroupIcon from "@mui/icons-material/Group";
-import { useTheme } from "@mui/material/styles";
 import { bestTeam } from "../../constants/common";
 
-const BestTeam = () => {
-  const theme = useTheme();
+const BestTeam = ({theme}) => {
 
   return (
     <Box
@@ -18,7 +15,7 @@ const BestTeam = () => {
         mx: "auto",
         mt: 5,
         p: 3,
-        bgcolor: theme.palette.background.paper, // ✅ dynamic background
+        bgcolor: theme.palette.background.paper, 
         borderRadius: 2,
         boxShadow: 4,
       }}
@@ -36,7 +33,7 @@ const BestTeam = () => {
         sx={{
           p: 2,
           textAlign: "center",
-          bgcolor: theme.palette.background.paper, // ✅ dynamic background (light/dark)
+          bgcolor: theme.palette.background.paper, 
         }}
       >
         <GroupIcon sx={{ fontSize: 40, color: theme.palette.secondary.main }} />

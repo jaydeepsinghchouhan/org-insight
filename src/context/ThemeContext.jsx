@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
+import { getItem, setItem } from "../utils/common";
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -6,13 +7,20 @@ const ColorModeContext = createContext({ toggleColorMode: () => {} });
 export const useColorMode = () => useContext(ColorModeContext);
 
 export const ThemeContextProvider = ({ children }) => {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState(() => getItem("themeMode", "light"));
 
-  const colorMode = useMemo(() => ({
-    toggleColorMode: () => {
-      setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-    },
-  }), []);
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => {
+          const newMode = prevMode === "light" ? "dark" : "light";
+          setItem("themeMode", newMode); // Persist in localStorage
+          return newMode;
+        });
+      },
+    }),
+    []
+  );
 
   return (
     <ColorModeContext.Provider value={{ mode, ...colorMode }}>

@@ -3,11 +3,12 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import Footer from "./Footer";
 
 function Layout() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const bottomNavHeight = 56; // default MUI BottomNavigation height
+  const bottomNavHeight = 56;
 
   return (
     <Box sx={{ display: "flex", height: "100vh" }}>
@@ -19,10 +20,11 @@ function Layout() {
             p: 2,
             flexGrow: 1,
             overflow: "auto",
-            pb: isMobile ? `${bottomNavHeight + 8}px` : 2, // extra bottom padding for mobile
+            pb: isMobile ? `${bottomNavHeight + 8}px` : 2,
           }}
         >
           <Outlet />
+          <Footer/>
         </Box>
       </Box>
     </Box>

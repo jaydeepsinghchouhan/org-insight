@@ -7,12 +7,11 @@ function* fetchEmployeesSaga() {
     const employees = yield call(getEmployees);
     yield put(setEmployees(employees));
   } catch (e) {
-    // handle error (show notification or log)
     console.warn(e);
     
   }
 }
 
 export default function* rootSaga() {
-  yield takeLatest('FETCH_EMPLOYEES_REQUEST', fetchEmployeesSaga);
+  yield takeLatest('FETCH_EMPLOYEES_START', fetchEmployeesSaga);
 }

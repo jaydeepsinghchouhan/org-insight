@@ -79,6 +79,8 @@ src/
 │ │ ├── Bestteams.jsx # Component to show best teams
 │ │ ├── TopPerformers.jsx # UI for employees of the month
 │ │ └── UpcomingEvents.jsx # UI for upcomin gevents
+│ ├── ErrorBoundary.jsx # UI to show when a crash or runtime error occurs to prevent a black screen
+│ ├── PageNotFound.jsx # UI for unkown paths
 │ └── Footer.jsx # Footer component
 │
 ├── hooks/ # Custom React hooks for logic separation
@@ -116,51 +118,6 @@ src/
 ├── App.jsx # Main App entry component
 └── main.jsx # React DOM entry point
 ```
-
-## 📂 Folder Structure
-src/
-├── components/ # Reusable UI components\
-
-│ ├── Employees.jsx # Main employee listing & filters
-
-│ ├── Filters.jsx # Search & filter UI
-│ ├── EmployeeGrid.jsx # Grid layout for employees
-│ ├── EmployeeCard.jsx # Card UI for each employee
-│ ├── OrgChart.jsx # D3 Tree org chart
-│ ├── Sidebar.jsx # Sidebar & bottom navigation
-│ └── Footer.jsx # Footer component
-│
-├── hooks/ # Custom React hooks for logic separation
-│ ├── useEmployees.js # Data fetching & employee logic
-│ └── useFilters.js # Search/department filter handling with debounce
-│
-├── context/ # Global contexts
-│ └── ThemeContext.jsx # Dark/Light mode with localStorage persistence
-│
-├── constants/ # Static shared constants
-│ └── common.js # Sidebar items, enums, etc.
-│
-├── helpers/ # Helper/utility functions
-│ └── common.js # buildHierarchy and other helpers
-│
-├── store/ # Redux state management
-│ ├── employees/ # Redux slice, saga, and actions for employees
-│ └── store.js # Redux store configuration
-│
-├── theme/ # Theme-related configuration
-│ └── createAppTheme.js # MUI theme definitions (light & dark)
-│
-├── routes/ # Routing configuration
-│ └── index.js # Public route definitions
-│
-├── utils/ # Generic utility functions
-│ └── storage.js # localStorage helper (getItem, setItem)
-│
-├── App.jsx # Main App entry component
-├── main.jsx # React DOM entry point
-└── setupTests.js # RTL/Jest DOM setup
-
-
 ---
 
 ## 🏗 Architectural & Scalability Decisions

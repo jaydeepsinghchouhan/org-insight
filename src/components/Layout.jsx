@@ -17,15 +17,16 @@ function Layout() {
         <Header />
         <Box
           sx={{
-            p: 2,
+            p: isMobile ? 0:2,
             flexGrow: 1,
             overflow: "auto",
             pb: isMobile ? `${bottomNavHeight + 8}px` : 2,
+            minHeight: "80vh",
           }}
         >
           <Outlet />
-          <Footer/>
         </Box>
+        <Footer/>
       </Box>
     </Box>
   );

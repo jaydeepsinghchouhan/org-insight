@@ -30,7 +30,7 @@ export default function Sidebar() {
     <>
       <div style={{ textAlign: "center", padding: "16px" }}>
       <Link
-        to="/"
+        to="/dashboard"
         style={{
           textDecoration: "none",
           display: "inline-block",
@@ -112,46 +112,52 @@ export default function Sidebar() {
 
       {/* Mobile: Bottom Navigation */}
       {isMobile && (
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            borderTop: `1px solid ${theme.palette.divider}`,
-            zIndex: theme.zIndex.drawer + 1,
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-              navigate(sideBarElements[newValue].link);
+  <>
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 56, // standard MUI BottomNavigation height
+        borderTop: `1px solid ${theme.palette.divider}`,
+        zIndex: theme.zIndex.drawer + 1,
+        backgroundColor: theme.palette.background.paper,
+      }}
+    >
+      <BottomNavigation
+        showLabels
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+          navigate(sideBarElements[newValue].link);
+        }}
+      >
+        {sideBarElements.map((element, index) => (
+          <BottomNavigationAction
+            key={element.id}
+            label={element.label}
+            icon={icons[index] || <HomeIcon />}
+            sx={{
+              "&.Mui-selected": {
+                color: theme.palette.text.primary,
+                fontWeight: "bold",
+                "& .MuiSvgIcon-root": {
+                  border: `2px solid ${theme.palette.gold}`,
+                  borderRadius: "50%",
+                  padding: "4px",
+                }
+              }
             }}
-          >
-            {sideBarElements.map((element, index) => (
-              <BottomNavigationAction
-                key={element.id}
-                label={element.label}
-                icon={icons[index] || <HomeIcon />}
-                sx={{
-                  "&.Mui-selected": {
-                    color: theme.palette.text.primary,
-                    fontWeight: "bold",
-                    fontSize:"2rem",
-                    "& .MuiSvgIcon-root": {
-                      border: `2px solid ${theme.palette.gold}`, 
-                      borderRadius: "50%", 
-                      padding: "4px",       
-                    }
-                  }
-                }}
-              />
-            ))}
-          </BottomNavigation>
-        </Box>
-      )}
+          />
+        ))}
+      </BottomNavigation>
+    </Box>
+
+    {/* Spacer div to push content above bottom navigation */}
+    <Box sx={{ height: 56 }} />
+  </>
+)}
     </>
   );
 }

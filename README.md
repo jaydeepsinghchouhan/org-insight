@@ -1,5 +1,7 @@
 # 📇 orgInsight - Know your Organization
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Now-brightgreen?style=for-the-badge)](https://orginsight.netlify.app/)
+
 A responsive **Employee Directory Web Application** built with **React 19 + Vite**, **Redux Toolkit + Redux-Saga**, and **Material-UI (MUI)**.  
 It allows you to list, search, and filter employees, view their positions in an **Org Chart** (React D3 Tree), and manage themes (**Dark/Light Mode**) with persistent preference storage.
 
